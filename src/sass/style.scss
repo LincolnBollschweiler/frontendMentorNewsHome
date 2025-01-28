@@ -142,6 +142,18 @@ body {
       grid-template-areas: "main-image" "new-articles" "retro-pc" "laptop-keyboard" "game-controller";
     }
 
+    .main-image img {
+      width: 100%;
+      object-fit: cover;
+      background-image: url("../images/image-web-3-desktop.jpg");
+      aspect-ratio: 1400 / 600;
+
+      @include mobile {
+        background-image: url("../images/image-web-3-mobile.jpg");
+        aspect-ratio: 650 / 600;
+      }
+    }
+
     .bright-future-container {
       margin-top: 1rem;
       justify-content: space-evenly;

@@ -6,7 +6,7 @@ export const mainContent = () => {
   mainEvents();
   return `    
     <div class="flex column main-image">
-        <img tabindex="0" src="images/image-web-3-desktop.jpg" alt="colorful image of technical building blocks" />
+        <img tabindex="0" aria-label="colorful image of technical building blocks" />
         <div class="flex row bright-future-container">
             <div class="bright-future" tabindex="0" role="heading">The Bright Future of Web 3.0?</div>
             <div class="flex column">
