@@ -191,19 +191,22 @@ body {
 
       ul {
         flex-grow: 1;
+
+        hr {
+          width: 100%;
+          border-color: $dark-grayish-blue;
+        }
       }
 
       li {
         margin: 0;
         flex-basis: 33.3%;
-
-        &:not(:last-child) {
-          border-bottom: 1px solid $dark-grayish-blue;
-        }
+        justify-content: center;
 
         h2 {
           color: $off-white;
           font-size: 1.25rem;
+          margin: 0;
 
           &:hover {
             color: $soft-orange;
