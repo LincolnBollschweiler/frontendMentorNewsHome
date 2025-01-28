@@ -6,5 +6,7 @@ import { mainContent } from "./components/mainContent";
 (() => {
   $("header").html(header);
   $("main").html(mainContent());
-  $("footer").html(footer("test"));
+  $("footer").html(
+    footer("https://github.com/LincolnBollschweiler/frontendMentorNewsHome")
+  );
 })();
