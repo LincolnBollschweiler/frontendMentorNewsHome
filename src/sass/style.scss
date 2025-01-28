@@ -1,0 +1,259 @@
+@forward "andyBell";
+@use "config" as *;
+
+body {
+  font-family: "Inter", sans-serif;
+  display: grid;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  *:focus-visible {
+    outline: 2px dashed mediumblue;
+    outline-offset: 3px;
+  }
+
+  .flex {
+    display: flex;
+    gap: 1rem;
+
+    &.row {
+      flex-direction: row;
+      @include mobile {
+        &:not(.article-card, nav) {
+          flex-direction: column;
+        }
+      }
+    }
+    &.column {
+      flex-direction: column;
+    }
+  }
+
+  header {
+    margin-bottom: 0.75rem;
+    nav {
+      justify-content: space-between;
+      align-items: center;
+
+      #mobile-hamburger {
+        display: none;
+        @include mobile {
+          display: block;
+        }
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-family: "Times New Roman", Times, serif;
+        color: $very-dark-blue;
+      }
+
+      .nav-links {
+        @include mobile {
+          display: none;
+          position: absolute;
+          right: 0;
+          max-width: 80%;
+          min-width: 200px;
+          text-align: left;
+          padding: 1rem;
+          padding-top: 5rem;
+          background: $off-white;
+          height: 100vh;
+          top: 0;
+
+          &.show {
+            display: block;
+          }
+
+          li {
+            margin: 1rem 0;
+          }
+        }
+        a {
+          color: $dark-grayish-blue;
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: 600;
+          margin-left: 1.5rem;
+
+          &:hover {
+            color: $soft-red;
+          }
+        }
+
+        #mobile-menu-close {
+          display: none;
+          @include mobile {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+
+          img {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    margin: 1rem 0;
+
+    .attribution {
+      font-size: 0.75rem;
+      text-align: center;
+
+      a {
+        color: hsl(228, 45%, 44%);
+      }
+    }
+  }
+
+  .main-image {
+    grid-area: main-image;
+  }
+  .new-articles {
+    grid-area: new-articles;
+  }
+  .retro-pc {
+    grid-area: retro-pc;
+  }
+  .laptop-keyboard {
+    grid-area: laptop-keyboard;
+  }
+  .game-controller {
+    grid-area: game-controller;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    grid-template-areas: "main-image main-image new-articles" "retro-pc laptop-keyboard game-controller";
+
+    @include mobile {
+      grid-template-columns: 1fr;
+
+      grid-template-areas: "main-image" "new-articles" "retro-pc" "laptop-keyboard" "game-controller";
+    }
+
+    .bright-future-container {
+      margin-top: 1rem;
+      justify-content: space-evenly;
+      * {
+        flex-basis: 50%;
+      }
+      .bright-future {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1;
+        padding-right: 2rem;
+      }
+      p {
+        color: $dark-grayish-blue;
+      }
+      a {
+        background: $soft-red;
+        width: 60%;
+        text-decoration: none;
+        color: $very-dark-blue;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 600;
+
+        &:hover {
+          background: $very-dark-blue;
+          color: $grayish-blue;
+        }
+      }
+    }
+
+    .new-articles {
+      background: $very-dark-blue;
+      padding: 1.5rem;
+
+      > h2 {
+        color: $soft-orange;
+        font-size: 2.25rem;
+      }
+
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        flex-grow: 1;
+      }
+
+      li {
+        margin: 0;
+        flex-basis: 33.3%;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $dark-grayish-blue;
+        }
+
+        h2 {
+          color: $off-white;
+          font-size: 1.25rem;
+
+          &:hover {
+            color: $soft-orange;
+          }
+        }
+
+        p {
+          color: $grayish-blue;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .article-card {
+      align-items: flex-start;
+      img {
+        margin-top: 0.75rem;
+        width: 25%;
+        aspect-ratio: 200 / 250;
+        object-fit: contain;
+      }
+
+      > div {
+        gap: 0.25rem;
+
+        flex-grow: 1;
+
+        div {
+          font-size: 2rem;
+          color: $soft-red;
+          font-weight: 600;
+        }
+
+        a {
+          color: $very-dark-blue;
+          text-decoration: none;
+          font-size: 1.125rem;
+          font-weight: 800;
+
+          &:hover {
+            color: $soft-red;
+          }
+        }
+
+        p {
+          color: $dark-grayish-blue;
+          font-size: 0.875rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
